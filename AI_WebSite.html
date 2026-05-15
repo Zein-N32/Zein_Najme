@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercedes-Benz E-Class Showcase</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            color: #222;
+        }
+
+        header {
+            background: #000;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+            letter-spacing: 2px;
+        }
+
+        /* Slideshow */
+        .slideshow {
+            position: relative;
+            width: 100%;
+            height: 60vh;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            animation: fade 24s infinite;
+        }
+
+        .slide:nth-child(1) { animation-delay: 0s; }
+        .slide:nth-child(2) { animation-delay: 6s; }
+        .slide:nth-child(3) { animation-delay: 12s; }
+        .slide:nth-child(4) { animation-delay: 18s; }
+
+        @keyframes fade {
+            0% { opacity: 0; }
+            10% { opacity: 1; }
+            30% { opacity: 1; }
+            40% { opacity: 0; }
+            100% { opacity: 0; }
+        }
+
+        /* Info sections */
+        .car-info {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+
+        /* Gallery */
+        .gallery {
+            max-width: 1000px;
+            margin: 40px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 0 20px;
+        }
+
+        .gallery-item {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform .2s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .gallery-info {
+            padding: 15px;
+        }
+
+        .rating {
+            font-size: 1.2rem;
+            color: #f4b400;
+        }
+
+        /* Car detail pages */
+        .car-page {
+            display: none;
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+
+        .car-hero {
+            width: 100%;
+            height: 55vh;
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #000;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+
+    <script>
+        function showCar(id) {
+            document.getElementById("gallery-section").style.display = "none";
+            document.querySelectorAll(".car-page").forEach(p => p.style.display = "none");
+            document.getElementById(id).style.display = "block";
+            window.scrollTo(0, 0);
+        }
+
+        function goBack() {
+            document.querySelectorAll(".car-page").forEach(p => p.style.display = "none");
+            document.getElementById("gallery-section").style.display = "grid";
+            window.scrollTo(0, 0);
+        }
+    </script>
+
+</head>
+<body>
+
+<header>
+    <h1>Mercedes-Benz E-Class Showcase</h1>
+    <p>Luxury • Performance • Elegance</p>
+</header>
+
+<!-- Slideshow -->
+<div class="slideshow">
+    <div class="slide" style="background-image: url('https://images.autotrader.com.au/t_listing_hero_at/inventory/2026-02-03/91016251900771/14759172/2017_mercedes_benz_e350_Used_1.jpg');"></div>
+    <div class="slide" style="background-image: url('https://images.autotrader.com.au/t_listing_original_cg/inventory/2026-04-09/61431312175771/15050790/2016_mercedes_benz_e350_Used_1.jpg');"></div>
+    <div class="slide" style="background-image: url('https://hips.hearstapps.com/mtg-prod/65b692288dc8e60008c79709/1002-01-z-2011-mercedes-benz-e350-cabriolet-front-view.jpg');"></div>
+    <div class="slide" style="background-image: url('https://images.autotrader.com.au/t_listing_hero_at/inventory/2026-04-01/80852200105771/15040656/2012_mercedes_benz_e350_Used_1.jpg');"></div>
+</div>
+
+<!-- E-Class Info -->
+<div class="car-info">
+    <h2>About the Mercedes-Benz E-Class</h2>
+    <p>The E-Class is known for its perfect balance of comfort, performance, and luxury.</p>
+</div>
+
+<!-- OTHER MERCEDES CLASSES -->
+<div class="car-info">
+    <h2>Other Mercedes-Benz Classes</h2>
+
+    <h3>A-Class</h3>
+    <p>Compact, sporty, youthful, and packed with modern tech.</p>
+
+    <h3>B-Class</h3>
+    <p>Practical, spacious, and ideal for families.</p>
+
+    <h3>C-Class</h3>
+    <p>Luxury, refinement, and performance in a compact executive package.</p>
+
+    <h3>T-Class</h3>
+    <p>Premium compact van with sliding doors and flexible seating.</p>
+
+    <h3>V-Class</h3>
+    <p>Large luxury people mover with executive comfort.</p>
+</div>
+
+<!-- Gallery -->
+<div id="gallery-section" class="gallery">
+
+    <div class="gallery-item" onclick="showCar('car2016')">
+        <img src="https://images.autotrader.com.au/t_listing_original_cg/inventory/2026-04-09/61431312175771/15050790/2016_mercedes_benz_e350_Used_1.jpg">
+        <div class="gallery-info">
+            <div class="rating">⭐⭐⭐⭐</div>
+            <p>2016 Mercedes-Benz E350 d (W213)</p>
+        </div>
+    </div>
+
+    <div class="gallery-item" onclick="showCar('car2017')">
+        <img src="https://images.autotrader.com.au/t_listing_hero_at/inventory/2026-02-03/91016251900771/14759172/2017_mercedes_benz_e350_Used_1.jpg">
+        <div class="gallery-info">
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+            <p>2017 Mercedes-Benz E350 d (W213 MY18)</p>
+        </div>
+    </div>
+
+    <div class="gallery-item" onclick="showCar('car2011')">
+        <img src="https://hips.hearstapps.com/mtg-prod/65b692288dc8e60008c79709/1002-01-z-2011-mercedes-benz-e350-cabriolet-front-view.jpg">
+        <div class="gallery-info">
+            <div class="rating">⭐⭐⭐</div>
+            <p>2011 Mercedes-Benz E350 Avantgarde (C207 MY11)</p>
+        </div>
+    </div>
+
+    <div class="gallery-item" onclick="showCar('car2012')">
+        <img src="https://images.autotrader.com.au/t_listing_hero_at/inventory/2026-04-01/80852200105771/15040656/2012_mercedes_benz_e350_Used_1.jpg">
+        <div class="gallery-info">
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+            <p>2012 Mercedes-Benz E350 Avantgarde (C207 MY12)</p>
+        </div>
+    </div>
+
+</div>
+
+<!-- 2016 PAGE -->
+<div id="car2016" class="car-page">
+    <div class="car-hero" style="background-image:url('https://images.autotrader.com.au/t_listing_original_cg/inventory/2026-04-09/61431312175771/15050790/2016_mercedes_benz_e350_Used_1.jpg');"></div>
+    <h2>2016 Mercedes-Benz E350 d (W213)</h2>
+    <p>The 2016 E350 d is part of the W213 generation, known for advanced technology and comfort.</p>
+    <ul>
+        <li>Generation: W213</li>
+        <li>Body: 4-door sedan</li>
+        <li>Platform: MRA</li>
+        <li>Production: From 2016</li>
+    </ul>
+    <a class="back-btn" onclick="goBack()">← Back</a>
+</div>
+
+<!-- 2017 PAGE -->
+<div id="car2017" class="car-page">
+    <div class="car-hero" style="background-image:url('https://images.autotrader.com.au/t_listing_hero_at/inventory/2026-02-03/91016251900771/14759172/2017_mercedes_benz_e350_Used_1.jpg');"></div>
+    <h2>2017 Mercedes-Benz E350 d (W213 MY18)</h2>
+    <p>The MY18 update improved refinement, safety, and interior technology.</p>
+    <ul>
+        <li>Generation: W213</li>
+        <li>Body: 4-door sedan</li>
+        <li>Interior: widescreen cockpit available</li>
+    </ul>
+    <a class="back-btn" onclick="goBack()">← Back</a>
+</div>
+
+<!-- 2011 PAGE -->
+<div id="car2011" class="car-page">
+    <div class="car-hero" style="background-image:url('https://hips.hearstapps.com/mtg-prod/65b692288dc8e60008c79709/1002-01-z-2011-mercedes-benz-e350-cabriolet-front-view.jpg');"></div>
+    <h2>2011 Mercedes-Benz E350 Avantgarde (C207 MY11)</h2>
+    <p>Part of the C207 coupe/cabriolet line, offering sporty luxury.</p>
+    <ul>
+        <li>Generation: C207</li>
+        <li>Body: 2-door coupe/cabriolet</li>
+        <li>Trim: Avantgarde</li>
+    </ul>
+    <a class="back-btn" onclick="goBack()">← Back</a>
+</div>
+
+<!-- 2012 PAGE -->
+<div id="car2012" class="car-page">
+    <div class="car-hero" style="background-image:url('https://images.autotrader.com.au/t_listing_hero_at/inventory/2026-04-01/80852200105771/15040656/2012_mercedes_benz_e350_Used_1.jpg');"></div>
+    <h2>2012 Mercedes-Benz E350 Avantgarde (C207 MY12)</h2>
+    <p>A refined update of the C207 coupe/cabriolet with premium comfort.</p>
+    <ul>
+        <li>Generation: C207</li>
+        <li>Body: 2-door coupe/cabriolet</li>
+        <li>Trim: Avantgarde</li>
+    </ul>
+    <a class="back-btn" onclick="goBack()">← Back</a>
+</div>
+
+<footer>
+    © 2026 Mercedes-Benz E-Class Showcase
+</footer>
+
+</body>
+</html>
